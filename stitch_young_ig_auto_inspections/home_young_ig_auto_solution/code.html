@@ -1,0 +1,404 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Young IG Auto-Solution | Precision Pre-Purchase Inspection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary-container": "#e2e2e2",
+                "surface-container-highest": "#353534",
+                "on-primary-fixed": "#1f1c00",
+                "secondary-fixed": "#ffdad6",
+                "tertiary": "#ffffff",
+                "primary-fixed": "#f7e600",
+                "surface": "#131313",
+                "surface-container": "#201f1f",
+                "on-error-container": "#ffdad6",
+                "on-secondary": "#690006",
+                "on-primary-container": "#6e6600",
+                "background": "#131313",
+                "on-error": "#690005",
+                "surface-tint": "#d9c900",
+                "on-tertiary-fixed-variant": "#474747",
+                "surface-dim": "#131313",
+                "on-secondary-fixed": "#410002",
+                "secondary-fixed-dim": "#ffb4ab",
+                "error": "#ffb4ab",
+                "inverse-surface": "#e5e2e1",
+                "secondary-container": "#ce0217",
+                "surface-variant": "#353534",
+                "on-primary-fixed-variant": "#4e4800",
+                "surface-container-high": "#2a2a2a",
+                "inverse-on-surface": "#313030",
+                "primary-container": "#f7e600",
+                "on-background": "#e5e2e1",
+                "on-surface": "#e5e2e1",
+                "on-tertiary-fixed": "#1b1b1b",
+                "surface-container-low": "#1c1b1b",
+                "secondary": "#ffb4ab",
+                "error-container": "#93000a",
+                "surface-bright": "#393939",
+                "on-tertiary": "#303030",
+                "inverse-primary": "#686000",
+                "on-secondary-container": "#ffdcd8",
+                "surface-container-lowest": "#0e0e0e",
+                "on-tertiary-container": "#646464",
+                "tertiary-fixed": "#e2e2e2",
+                "primary-fixed-dim": "#d9c900",
+                "outline": "#969177",
+                "outline-variant": "#4a4731",
+                "on-primary": "#363100",
+                "primary": "#ffffff",
+                "tertiary-fixed-dim": "#c6c6c6",
+                "on-surface-variant": "#ccc7aa",
+                "on-secondary-fixed-variant": "#93000d"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "margin-mobile": "16px",
+                "xs": "4px",
+                "md": "24px",
+                "sm": "12px",
+                "lg": "48px",
+                "gutter": "24px",
+                "xl": "80px",
+                "base": "8px",
+                "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                "body-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "display-lg": ["Sora"],
+                "label-caps": ["JetBrains Mono"],
+                "data-point": ["JetBrains Mono"],
+                "headline-md": ["Sora"],
+                "headline-lg": ["Sora"]
+            },
+            "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                "data-point": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .car-scroll-track {
+            position: fixed;
+            top: 50%;
+            left: -100px;
+            width: 100px;
+            height: 40px;
+            z-index: 100;
+            pointer-events: none;
+            transition: transform 0.1s linear;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .tech-border {
+            border: 1px solid #2A2A2A;
+        }
+        .status-chip-glow {
+            box-shadow: 0 0 15px rgba(247, 230, 0, 0.1);
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Car Animation Asset -->
+<div class="car-scroll-track flex items-center justify-center opacity-40" id="scrollCar" style="transform: translateX(-100px) translateY(0px); opacity: 0;">
+<span class="material-symbols-outlined text-primary-fixed" style="font-size: 48px;">directions_car</span>
+</div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-surface-variant shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-screen-2xl mx-auto w-full">
+<div class="flex items-center gap-4">
+<img alt="Young IG Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZRtodn5Q65IujNH1qzRIB09YUV6eQsVR4iqI0YqN9hDL5X9vv4NwqxUCZMDKKr0e_K7XyqSz3gIyQ9xyw0M7mHDMZxi6ARprc0ijCXTFtTwIZa3es85-4FkyGVUSQKwD_bnhO5t_Jy1xuoJIVFmswZAwMwEYtOEV_-b451bn6YKt-VacGofIJHeDcLx4fM7ZCeQh7nL3SeNhJCyKHRfiG0ZUdX5tlPQCYfXAuO09t0ABalmLrLbdSkdmKnXxpiU5gSXpoIusLfsZx">
+<span class="font-display-lg text-headline-md text-primary tracking-tight">Young IG Auto-Solution</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary-fixed border-b-2 border-primary-fixed pb-1 font-label-caps text-label-caps" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors font-label-caps text-label-caps" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors font-label-caps text-label-caps" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors font-label-caps text-label-caps" href="#">FAQs</a>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors font-label-caps text-label-caps" href="#">History</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block text-primary font-label-caps text-label-caps hover:brightness-110 active:scale-95 transition-all">Contact Us</button>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps px-6 py-3 rounded hover:brightness-110 active:scale-95 transition-all shadow-lg">Book Inspection</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-40 hero-mask" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyuig3gFj5H6qv8yci-YiLIOV-LO7pVQBRPCSJTCcXRUWcYnmPthK2CMUgZNvgfsA6pJWF3-r22mxsI21AuIpcCfFW2QXfgHP2uhgNw4MVWekOwaY1TAZzCqRpZxiggeCEKhJmQVqnA7X9Y1Wjm2hauWHIJ47BUZuK0yd8PecRCnUJB5nV6CY0Dnvd3Ib8_6-mZj3PfmQ2538IvWc0z4a9ee1pveBFUGsQD2nFYJjKDvrT4UIP6U1_taGmhdLvxzyB4hvXY798qPY1')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-screen-2xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-xl">
+<div class="flex flex-col justify-center gap-6">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container/20 border border-secondary-container rounded-full w-fit">
+<span class="material-symbols-outlined text-secondary text-sm">warning</span>
+<span class="font-label-caps text-[10px] text-secondary tracking-widest uppercase">40% of Used Cars in Kenya Have Hidden Problems</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary leading-none">Drive Away Knowing You Got a <span class="text-primary-fixed">Great Deal</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">We uncover the hidden history and mechanical secrets of any used car before you hand over your cash. 200+ points inspected. 100% peace of mind.</p>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-lg font-label-caps text-label-caps hover:brightness-110 transition-all flex items-center gap-2">
+                        Get Your Inspection <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-outline px-8 py-4 rounded-lg font-label-caps text-label-caps text-primary hover:bg-surface-container-high transition-all">
+                        View Sample Report
+                    </button>
+</div>
+</div>
+<div class="hidden lg:flex items-center justify-center">
+<div class="relative w-full aspect-video glass-panel rounded-xl p-base tech-border overflow-hidden transition-all duration-700 opacity-100 translate-y-0">
+<img alt="Diagnostic Interface Preview" class="w-full h-full object-cover rounded shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmH_p3VzMkeKuH-eGjA-P_z0Ty0JgT9ebVOmsfCVsOI9Ni_MhdrkjOOs-fYcHEFXNqk0i7BdKJFwh6L0sPt8880OSa8HX7HYRqkC2pzV1X55-IXX5lQCCzMoWDSRrboiDDRUoi4FqkKZZobP129ydP6eKi8dWTgmCUC7ccYNfTQmFJKMnUPWXpq-wQLL2H8c4C1EwCQiWKYg-NxPmlSevpaHFkhx8k6H5QVbbW7i7duSUITECfKMSmbNI6xRLAOtai7g32CBtr5WGo">
+<div class="absolute top-4 right-4 bg-background/80 px-3 py-1 rounded border border-primary-fixed/30 flex items-center gap-2">
+<div class="w-2 h-2 bg-primary-fixed rounded-full animate-pulse"></div>
+<span class="font-label-caps text-[10px] text-primary-fixed">LIVE DIAGNOSTICS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us: Bento Grid -->
+<section class="py-xl px-margin-desktop bg-surface">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-4 mb-lg">
+<span class="font-label-caps text-primary-fixed text-label-caps tracking-[0.2em] uppercase">Engineering Excellence</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Why Choose Young IG?</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto lg:h-[600px]">
+<!-- Main Feature -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-high tech-border p-lg flex flex-col justify-end transition-all duration-700 opacity-0 translate-y-10">
+<div class="absolute inset-0 z-0 opacity-30 group-hover:opacity-50 transition-opacity">
+<img alt="Mechanical Inspection Detail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJGU3-_Lsb6g9nIzAgcQ_FEJFXJagDunCgw-83OegXV0lg3Ca9uO5XAabXB66pjm7xWrKmA_nrzDGjp7TsLOML039repkXDfxfFMvqO7fp-7SzLtewbFEwXlcaAe4GpIYHg5m6EZ3rbE9kUCLQJX0KbWGbyeNwo3wmyXU6UqdhpY_yQ7T3VGyMO230nxXGs2UqRjtWQ4hdYP0a3REpQ3xTpRstwPXP3s-vGMYetOtl0FsV15b8rEW5IfplU3V6e7idROx3_IVsq87P">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10"></div>
+<div class="relative z-20">
+<div class="w-12 h-12 bg-primary-fixed text-on-primary-fixed rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">engineering</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Precision Diagnostics</h3>
+<p class="font-body-md text-on-surface-variant max-w-lg">Our technicians utilize high-end industrial scanners that interface directly with the vehicle's ECU, revealing history that standard OBD-II readers miss.</p>
+</div>
+</div>
+<!-- Secondary Features Stack -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 glass-panel rounded-xl p-md tech-border flex flex-col gap-4 transition-all duration-700 opacity-0 translate-y-10">
+<span class="material-symbols-outlined text-primary-fixed">verified</span>
+<h4 class="font-headline-md text-headline-md text-primary text-xl">Verified Reports</h4>
+<p class="font-body-md text-on-surface-variant">Tamper-proof digital reports with 150+ point checkmarks and high-res imagery of critical components.</p>
+</div>
+<div class="flex-1 bg-surface-container rounded-xl p-md tech-border flex flex-col gap-4 transition-all duration-700 opacity-0 translate-y-10">
+<span class="material-symbols-outlined text-primary-fixed">speed</span>
+<h4 class="font-headline-md text-headline-md text-primary text-xl">Rapid Turnaround</h4>
+<p class="font-body-md text-on-surface-variant">Book today, get the full dossier within 4 hours. No delays, just expert-led transparency.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Impact Section -->
+<section class="py-xl px-margin-desktop bg-surface-container-lowest overflow-hidden relative">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Data-Driven Market Trust</h2>
+<div class="grid grid-cols-2 gap-md">
+<div class="p-lg bg-surface-container-high rounded tech-border text-center transition-all duration-700 opacity-0 translate-y-10">
+<div class="font-display-lg text-headline-lg text-primary-fixed mb-2">5.2k+</div>
+<div class="font-label-caps text-on-surface-variant tracking-widest">VEHICLES SCANNED</div>
+</div>
+<div class="p-lg bg-surface-container-high rounded tech-border text-center transition-all duration-700 opacity-0 translate-y-10">
+<div class="font-display-lg text-headline-lg text-primary-fixed mb-2">12M+</div>
+<div class="font-label-caps text-on-surface-variant tracking-widest">SAVINGS SECURED</div>
+</div>
+<div class="p-lg bg-surface-container-high rounded tech-border text-center transition-all duration-700 opacity-0 translate-y-10">
+<div class="font-display-lg text-headline-lg text-primary-fixed mb-2">99.8%</div>
+<div class="font-label-caps text-on-surface-variant tracking-widest">ACCURACY RATE</div>
+</div>
+<div class="p-lg bg-surface-container-high rounded tech-border text-center transition-all duration-700 opacity-0 translate-y-10">
+<div class="font-display-lg text-headline-lg text-primary-fixed mb-2">15+</div>
+<div class="font-label-caps text-on-surface-variant tracking-widest">KENYAN CITIES</div>
+</div>
+</div>
+</div>
+<div class="relative flex items-center justify-center group">
+<div class="absolute -inset-4 bg-primary-fixed/5 rounded-full blur-3xl animate-pulse"></div>
+<div class="relative p-8 bg-surface-container-low border border-surface-variant rounded-xl shadow-2xl">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-surface-container-high rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed">monitoring</span>
+</div>
+<div>
+<div class="font-headline-md text-lg text-primary">Systemic Engine Health</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant uppercase">Real-time Visualization</div>
+</div>
+</div>
+<!-- Mock Gauge -->
+<div class="flex justify-center mb-6">
+<div class="relative w-48 h-48">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#2A2A2A" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#f7e600" stroke-dasharray="282.7" stroke-dashoffset="40" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-3xl text-primary">85</span>
+<span class="font-label-caps text-[10px] text-primary-fixed">OPTIMAL</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-[10px] text-on-surface-variant">CYLINDER COMPRESSION</span>
+<span class="font-data-point text-primary-fixed">PASS</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary-fixed h-full w-[90%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-[10px] text-on-surface-variant">TRANSMISSION FLUID</span>
+<span class="font-data-point text-secondary">WARN</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[45%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-xl px-margin-desktop">
+<div class="max-w-screen-2xl mx-auto rounded-xl bg-primary-fixed p-xl relative overflow-hidden">
+<!-- Decorative Pattern -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 0); background-size: 20px 20px;"></div>
+<div class="relative z-10 flex flex-col items-center text-center gap-6">
+<h2 class="font-display-lg text-display-lg text-on-primary-fixed leading-none">Ready to Drive with <br>Absolute Confidence?</h2>
+<p class="font-body-lg text-on-primary-fixed max-w-2xl opacity-80">Don't let hidden mechanical failures turn your dream car into a financial nightmare. Get a professional verdict before you pay.</p>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="bg-on-primary-fixed text-primary px-10 py-5 rounded-lg font-label-caps text-headline-md tracking-widest hover:scale-105 transition-transform shadow-2xl">BOOK INSPECTION NOW</button>
+<button class="border-2 border-on-primary-fixed text-on-primary-fixed px-10 py-5 rounded-lg font-label-caps text-headline-md tracking-widest hover:bg-on-primary-fixed hover:text-primary transition-all">VIEW PRICING</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-xl px-margin-desktop border-t border-surface-variant">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-lg text-primary">Young IG</span>
+<span class="font-label-caps text-[10px] text-primary-fixed tracking-[0.3em]">AUTO-SOLUTION</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Engineering excellence in vehicle diagnostics and pre-purchase consultancy.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-primary text-label-caps uppercase mb-2">Navigation</span>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Service Status</a>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Support Center</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-primary text-label-caps uppercase mb-2">Services</span>
+<span class="text-on-surface-variant">Full Diagnostic Scan</span>
+<span class="text-on-surface-variant">Engine Boroscoping</span>
+<span class="text-on-surface-variant">Pre-Purchase Audit</span>
+<span class="text-on-surface-variant">Hybrid Battery Health</span>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-primary text-label-caps uppercase mb-2">Contact</span>
+<span class="text-on-surface-variant">HQ: Nairobi, Kenya</span>
+<span class="text-on-surface-variant">ops@youngig.co.ke</span>
+<div class="flex gap-4 mt-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">public</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary-fixed transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">mail</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-xl pt-lg border-t border-surface-variant/50 text-center">
+<p class="font-label-caps text-[10px] text-on-surface-variant tracking-widest">© 2024 YOUNG IG AUTO-SOLUTION. ENGINEERING EXCELLENCE IN DIAGNOSTICS.</p>
+</div>
+</footer>
+<script>
+        // Car moving scroll animation
+        const car = document.getElementById('scrollCar');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
+            const xPos = scrollPercent * (window.innerWidth + 200) - 100;
+            
+            // Subtle vertical wobble for car feeling
+            const yWobble = Math.sin(window.scrollY * 0.05) * 5;
+            
+            car.style.transform = `translateX(${xPos}px) translateY(${yWobble}px)`;
+            
+            // Adjust opacity based on location - fade in from left, fade out to right
+            if (xPos < 0) {
+                car.style.opacity = Math.max(0, (xPos + 100) / 100 * 0.4);
+            } else if (xPos > window.innerWidth - 100) {
+                car.style.opacity = Math.max(0, (window.innerWidth - xPos) / 100 * 0.4);
+            } else {
+                car.style.opacity = 0.4;
+            }
+        });
+        
+        // Initial call to position car correctly on load
+        window.dispatchEvent(new Event('scroll'));
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.tech-border').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+
+
+</body></html>

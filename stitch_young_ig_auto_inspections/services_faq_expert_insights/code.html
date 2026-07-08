@@ -1,0 +1,359 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Services &amp; FAQ | Young IG Auto-Solution</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .status-led {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .glow-yellow {
+            box-shadow: 0 0 15px rgba(247, 230, 0, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #f7e600;
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#e2e2e2",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed": "#1f1c00",
+                        "secondary-fixed": "#ffdad6",
+                        "tertiary": "#ffffff",
+                        "primary-fixed": "#f7e600",
+                        "surface": "#131313",
+                        "surface-container": "#201f1f",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#690006",
+                        "on-primary-container": "#6e6600",
+                        "background": "#131313",
+                        "on-error": "#690005",
+                        "surface-tint": "#d9c900",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#410002",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-container": "#ce0217",
+                        "surface-variant": "#353534",
+                        "on-primary-fixed-variant": "#4e4800",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-on-surface": "#313030",
+                        "primary-container": "#f7e600",
+                        "on-background": "#e5e2e1",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "surface-bright": "#393939",
+                        "on-tertiary": "#303030",
+                        "inverse-primary": "#686000",
+                        "on-secondary-container": "#ffdcd8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#646464",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-fixed-dim": "#d9c900",
+                        "outline": "#969177",
+                        "outline-variant": "#4a4731",
+                        "on-primary": "#363100",
+                        "primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-surface-variant": "#ccc7aa",
+                        "on-secondary-fixed-variant": "#93000d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Sora"],
+                        "label-caps": ["JetBrains Mono"],
+                        "data-point": ["JetBrains Mono"],
+                        "headline-md": ["Sora"],
+                        "headline-lg": ["Sora"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body-md text-on-surface overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Header / Navigation -->
+<header class="bg-background/90 dark:bg-background/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-surface-variant dark:border-surface-variant shadow-sm">
+<nav class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="font-display-lg text-headline-md text-primary dark:text-primary tracking-tighter">
+                YOUNG IG
+            </div>
+<div class="hidden md:flex items-center space-x-gutter">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-primary-fixed border-b-2 border-primary-fixed pb-1" href="#">Services</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">About</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">FAQs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">History</a>
+</div>
+<div class="flex items-center space-x-sm">
+<button class="hidden lg:block font-label-caps text-label-caps py-2 px-md border border-outline text-on-surface hover:brightness-110 active:scale-95 transition-all">Contact Us</button>
+<button class="font-label-caps text-label-caps py-2 px-md bg-primary-fixed text-on-primary-fixed hover:brightness-110 active:scale-95 transition-all">Book Inspection</button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section with Background Shader -->
+<section class="relative h-[409px] md:h-[512px] flex items-center overflow-hidden">
+
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto w-full">
+<div class="max-w-2xl">
+<span class="font-label-caps text-label-caps text-primary-fixed mb-xs block tracking-widest uppercase">System Protocol: Active</span>
+<h1 class="font-display-lg text-display-lg text-primary mb-md">Our Diagnostic <span class="text-primary-fixed">Arsenal</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Uncompromising precision through comprehensive mechanical audits. We don't just inspect; we decode the vehicle's history.</p>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
+</section>
+<!-- Services Bento Grid -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Highlight Service -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-high border border-outline-variant p-md lg:p-lg flex flex-col justify-end min-h-[400px] transition-all duration-700 opacity-100 translate-y-0">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic close-up of a high-tech diagnostic tablet connected to a modern luxury vehicle dashboard in a dimly lit, professional obsidian-toned workshop. The screen shows complex data visualizations and engine schematics in neon yellow and green. The lighting is focused and technical, emphasizing engineering precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-mOR0yP5u280cAiRUyPu-ajDTHboMVxu6ORu9JXFzmGGOysjD-dviSiIOJxTHEMMsWN16_vELpzu7bEm9TbOFyjRDlOsKknWR45H4z4VAcJQk6qCMj1eCQh8rixnCGPNj2fTjmLFZYxj-AkUuxwe_zcK_wM1h2RWSkCPAkaOrLXPNAe71lYfpCH2f-jYMHCLsiGPD49EYW6UnMEt2HO0yR70g_FkVvfPjzP7gwRBUgr5-1nuCRLUlpk1ofjWRwlG9hfEHcHuG5dLD">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center space-x-2 mb-sm">
+<span class="status-led bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
+<span class="font-label-caps text-label-caps text-primary-fixed">PRIMARY CORE</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-sm">Computerized Diagnostics</h3>
+<p class="font-body-md text-on-surface-variant max-w-lg mb-md">Full-spectrum ECU scanning using proprietary algorithms. We detect hidden fault codes, sensor malfunctions, and software inconsistencies that traditional shops miss.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container py-1 px-3 border border-outline-variant font-data-point text-data-point transition-all duration-700 opacity-0 translate-y-10">OBD-II DATA SCAN</span>
+<span class="bg-surface-container py-1 px-3 border border-outline-variant font-data-point text-data-point transition-all duration-700 opacity-0 translate-y-10">LIVE DATA STREAM</span>
+<span class="bg-surface-container py-1 px-3 border border-outline-variant font-data-point text-data-point transition-all duration-700 opacity-0 translate-y-10">MODULE ANALYSIS</span>
+</div>
+</div>
+</div>
+<!-- Engine & Transmission -->
+<div class="md:col-span-4 bg-surface-container border border-outline-variant p-md flex flex-col transition-all duration-700 opacity-100 translate-y-0">
+<div class="w-12 h-12 mb-md bg-primary-fixed/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">enable</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">Engine &amp; Transmission Check</h3>
+<p class="font-body-md text-on-surface-variant mb-gutter">Borescope internal inspections, compression testing, and transmission fluid analysis to ensure mechanical integrity at the molecular level.</p>
+<div class="mt-auto pt-md border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-caps text-label-caps opacity-60">REF: ENG_TX_09</span>
+<span class="material-symbols-outlined text-primary-fixed">arrow_forward</span>
+</div>
+</div>
+<!-- Body & Chassis -->
+<div class="md:col-span-4 bg-surface-container border border-outline-variant p-md flex flex-col transition-all duration-700 opacity-0 translate-y-10">
+<div class="w-12 h-12 mb-md bg-primary-fixed/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">Body &amp; Chassis Inspection</h3>
+<p class="font-body-md text-on-surface-variant mb-gutter">Microscopic paint depth analysis to detect previous repairs, along with structural alignment checks and corrosion assessments.</p>
+<div class="mt-auto pt-md border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-caps text-label-caps opacity-60">REF: STR_004</span>
+<span class="material-symbols-outlined text-primary-fixed">arrow_forward</span>
+</div>
+</div>
+<!-- Road Test & Valuation (Grid within Grid) -->
+<div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-high border border-outline-variant p-md transition-all duration-700 opacity-0 translate-y-10">
+<span class="material-symbols-outlined text-primary-fixed mb-sm">speed</span>
+<h4 class="font-headline-md text-headline-md mb-sm">Road Test</h4>
+<p class="font-body-md text-on-surface-variant">Real-world stress testing to evaluate NVH (Noise, Vibration, Harshness), steering response, and suspension damping performance.</p>
+</div>
+<div class="bg-primary-fixed text-on-primary-fixed border border-primary-fixed p-md">
+<span class="material-symbols-outlined text-on-primary-fixed mb-sm" style="font-variation-settings: 'FILL' 1;">description</span>
+<h4 class="font-headline-md text-headline-md mb-sm text-on-primary-fixed">Final Valuation Report</h4>
+<p class="font-body-md text-on-primary-fixed/80">A comprehensive digital dossier merging all data points into a clear market value assessment and risk profile score.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="bg-surface-container-low py-xl relative">
+<div class="px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto">
+<div class="text-center mb-xl">
+<h2 class="font-display-lg text-headline-lg mb-sm">Frequently Asked <span class="text-primary-fixed">Questions</span></h2>
+<p class="font-body-lg text-on-surface-variant">Technical clarity on our process, pricing, and methodology.</p>
+</div>
+<div class="space-y-gutter">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-high border border-outline-variant overflow-hidden transition-all duration-700 opacity-0 translate-y-10">
+<button class="w-full text-left p-md md:p-gutter flex justify-between items-center hover:bg-surface-bright transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
+<span class="font-headline-md text-headline-md">How much does an inspection cost?</span>
+<span class="material-symbols-outlined arrow transition-transform duration-300">expand_more</span>
+</button>
+<div class="hidden px-md md:px-gutter pb-md border-t border-outline-variant bg-surface-container-highest/20">
+<p class="font-body-md text-on-surface-variant pt-md">
+                                Our pricing is modular, starting from <span class="text-primary-fixed font-bold">₦45,000</span> for a standard pre-purchase inspection. Premium packages involving comprehensive engine teardown or hybrid battery health analysis vary based on vehicle complexity and location.
+                            </p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-high border border-outline-variant overflow-hidden transition-all duration-700 opacity-0 translate-y-10">
+<button class="w-full text-left p-md md:p-gutter flex justify-between items-center hover:bg-surface-bright transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
+<span class="font-headline-md text-headline-md">How long does it take?</span>
+<span class="material-symbols-outlined arrow transition-transform duration-300">expand_more</span>
+</button>
+<div class="hidden px-md md:px-gutter pb-md border-t border-outline-variant bg-surface-container-highest/20">
+<p class="font-body-md text-on-surface-variant pt-md">
+                                A thorough on-site inspection typically requires <span class="text-primary-fixed font-bold">90 to 120 minutes</span>. This allows our technicians to perform cold-start tests, computerized scans, and a minimum 5-mile road test.
+                            </p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-high border border-outline-variant overflow-hidden transition-all duration-700 opacity-0 translate-y-10">
+<button class="w-full text-left p-md md:p-gutter flex justify-between items-center hover:bg-surface-bright transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
+<span class="font-headline-md text-headline-md">Why do I need a professional diagnostic report?</span>
+<span class="material-symbols-outlined arrow transition-transform duration-300">expand_more</span>
+</button>
+<div class="hidden px-md md:px-gutter pb-md border-t border-outline-variant bg-surface-container-highest/20">
+<p class="font-body-md text-on-surface-variant pt-md">Traditional reports are subjective. Our expert technicians cross-reference real-time data with global failure databases to predict potential future repairs, providing you with a 'Transparency Score' that removes the guesswork from car buying.</p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-high border border-outline-variant overflow-hidden transition-all duration-700 opacity-0 translate-y-10">
+<button class="w-full text-left p-md md:p-gutter flex justify-between items-center hover:bg-surface-bright transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
+<span class="font-headline-md text-headline-md">Do you offer mobile inspections?</span>
+<span class="material-symbols-outlined arrow transition-transform duration-300">expand_more</span>
+</button>
+<div class="hidden px-md md:px-gutter pb-md border-t border-outline-variant bg-surface-container-highest/20">
+<p class="font-body-md text-on-surface-variant pt-md">
+                                Yes. Our technicians are equipped with portable diagnostic units and arrive at your preferred location—whether it's a seller's home, a dealership, or your office.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="relative bg-surface-container-highest border border-outline-variant p-lg md:p-xl flex flex-col md:flex-row items-center justify-between gap-gutter overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+<div class="w-full h-full" style="background-image: radial-gradient(#f7e600 1px, transparent 1px); background-size: 24px 24px;"></div>
+</div>
+<div class="relative z-10 text-center md:text-left max-w-2xl">
+<h2 class="font-display-lg text-headline-lg mb-md">Ready for absolute <span class="text-primary-fixed">transparency?</span></h2>
+<p class="font-body-lg text-on-surface-variant mb-md">Don't gamble on your next vehicle purchase. Secure an expert diagnostic report today.</p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row gap-sm">
+<button class="bg-primary-fixed text-on-primary-fixed py-md px-lg font-label-caps text-label-caps hover:brightness-110 active:scale-95 transition-all">SCHEDULE INSPECTION</button>
+<button class="border border-outline py-md px-lg font-label-caps text-label-caps hover:bg-surface-bright transition-all">DOWNLOAD SAMPLE REPORT</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Contact Icon -->
+<a class="fixed bottom-margin-mobile right-margin-mobile md:bottom-margin-desktop md:right-margin-desktop z-[60] bg-primary-fixed text-on-primary-fixed w-16 h-16 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(247,230,0,0.4)] hover:scale-110 active:scale-90 transition-all group" href="#">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</a>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-surface-variant w-full py-xl px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-screen-2xl mx-auto">
+<div class="md:col-span-1">
+<div class="font-display-lg text-headline-lg text-primary mb-md">YOUNG IG</div>
+<p class="font-body-md text-on-surface-variant max-w-xs">© 2024 Young IG Auto-Solution. Engineering Excellence in Diagnostics.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-md">Services</h4>
+<ul class="space-y-sm">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">ECU Diagnostics</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Mechanical Audit</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Market Valuation</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-md">Company</h4>
+<ul class="space-y-sm">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Service Status</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-md">Contact</h4>
+<p class="font-body-md text-on-surface-variant mb-sm">support@youngig.auto</p>
+<div class="flex space-x-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed cursor-pointer">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed cursor-pointer">location_on</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed cursor-pointer">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple animation trigger for scrolling
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bg-surface-container, .bg-surface-container-high').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+
+
+</body></html>
