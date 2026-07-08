@@ -1,0 +1,5 @@
+# Media files
+media/
+
+# Stitch files
+*.stitch
