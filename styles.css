@@ -718,7 +718,7 @@ p {
 
 .cta-panel {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: center;
   margin-bottom: 84px;
@@ -726,6 +726,43 @@ p {
   border-radius: var(--radius);
   background: var(--yellow);
   color: var(--black);
+}
+
+.wa-form {
+  display: grid;
+  gap: 14px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 28px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wa-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.wa-form input {
+  width: 100%;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: var(--black);
+  font-family: Inter, sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.wa-form input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.wa-form input:focus {
+  outline: none;
+  border-color: var(--black);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .cta-panel h2,
@@ -1059,6 +1096,10 @@ p {
 
   .cta-panel {
     padding: 28px 20px;
+  }
+
+  .wa-form .form-row {
+    grid-template-columns: 1fr;
   }
 
   .whatsapp-float {

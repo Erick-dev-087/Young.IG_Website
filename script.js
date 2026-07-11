@@ -122,3 +122,32 @@ if (lightbox) {
     }
   });
 }
+
+// WhatsApp Contact Form Logic
+const waForm = document.getElementById("wa-contact-form");
+if (waForm) {
+  waForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById("wa-name").value.trim();
+    const email = document.getElementById("wa-email").value.trim();
+    const make = document.getElementById("wa-make").value.trim();
+    const model = document.getElementById("wa-model").value.trim();
+    const location = document.getElementById("wa-location").value.trim();
+
+    let message = "Hello Young IG Auto-Solution, I would like a quotation for a car pre-purchase inspection.\n\n";
+    
+    if (name || email || make || model || location) {
+      message += "*My Details:*\n";
+      if (name) message += `- Name: ${name}\n`;
+      if (email) message += `- Email: ${email}\n`;
+      if (make || model) {
+        message += `- Car: ${make} ${model}`.trim() + "\n";
+      }
+      if (location) message += `- Location: ${location}\n`;
+    }
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/254796311601?text=${encodedMessage}`, "_blank");
+  });
+}
